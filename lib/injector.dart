@@ -31,7 +31,7 @@ Future<void> init() async {
     ),
   );
   injector.registerLazySingleton<PersonRemoteDatasource>(
-    () => PersonRemoteDatasourceImpl(dio: injector()),
+    () => PersonRemoteDatasourceImpl(dio: Dio()),
   );
   injector.registerLazySingleton<PersonLocalDataSources>(
     () => PersonLocalDataSourcesImpl(sharedPreferences: injector()),

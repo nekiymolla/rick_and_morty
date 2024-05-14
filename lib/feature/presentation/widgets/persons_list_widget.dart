@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/feature/presentation/widgets/person_plate_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../core/widgets/loading_indicator.dart';
@@ -28,11 +29,17 @@ class PersonsListWidget extends StatelessWidget {
       bool isLoading = false;
       List<PersonEntity> persons = [];
       if (state is PersonLoading && state.isFirtstFetch) {
-        loadingIndicator();
+        return loadingIndicator();
       } else if (state is PersonLoaded) {
         persons = state.personsList;
       } else if (state is PersonError) {
-        //TODO: add error message
+        return Text(
+          state.message,
+          style: const TextStyle(
+            color: Colors.red,
+            fontSize: 25,
+          ),
+        );
       } else if (state is PersonLoading) {
         persons = state.oldPersonsList;
         isLoading = true;
@@ -40,7 +47,12 @@ class PersonsListWidget extends StatelessWidget {
       return ListView.builder(
         controller: scrollController,
         itemCount: persons.length + (isLoading ? 1 : 0),
-        itemBuilder: (context, index) => Container(),
+        itemBuilder: (context, index) => Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 18,
+          ),
+          child: const PersonPlateWidget(),
+        ),
       );
     });
   }

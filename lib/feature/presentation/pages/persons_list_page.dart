@@ -16,6 +16,7 @@ class PersonsListPage extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
+          toolbarHeight: 90,
           backgroundColor: Colors.transparent,
           title: SvgPicture.asset(
             'assets/icons/logo.svg',
