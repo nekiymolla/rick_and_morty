@@ -8,7 +8,7 @@ import 'person_list_state.dart';
 class PersonListCubit extends Cubit<PersonState> {
   final GetPersonsUseCase getPersonsUseCase;
   PersonListCubit({required this.getPersonsUseCase}) : super(PersonEmpty());
-  void loadPersons(int page) async {
+  void loadPersons() async {
     int page = 1;
     final currentState = state;
     var oldPerson = <PersonEntity>[];
