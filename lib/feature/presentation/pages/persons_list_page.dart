@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import '../widgets/persons_list_widget.dart';
 
 class PersonsListPage extends StatelessWidget {
@@ -6,11 +7,24 @@ class PersonsListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Hello app'),
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/background.png'),
+          fit: BoxFit.cover,
+        ),
       ),
-      body: PersonsListWidget(),
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          title: SvgPicture.asset(
+            'assets/icons/logo.svg',
+            semanticsLabel: 'logo',
+          ),
+        ),
+        backgroundColor: Colors.transparent,
+        body: PersonsListWidget(),
+      ),
     );
   }
 }
