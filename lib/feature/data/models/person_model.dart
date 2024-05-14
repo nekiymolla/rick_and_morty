@@ -3,7 +3,8 @@ import 'package:flutter_application_1/feature/data/models/origin_model.dart';
 import 'package:flutter_application_1/feature/domain/entities/person_entity.dart';
 
 class PersonModel extends PersonEntity {
-  PersonModel(
+  // ignore: use_super_parameters
+  const PersonModel(
       {required id,
       required name,
       required status,
@@ -37,6 +38,7 @@ class PersonModel extends PersonEntity {
       species: json['species'],
       type: json['type'],
       gender: json['gender'],
+      //super params from json
       origin:
           json['origin'] != null ? OriginModel.fromJson(json['origin']) : null,
       location: json['location'] != null

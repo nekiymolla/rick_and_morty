@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_application_1/feature/domain/entities/entities.dart';
 
@@ -31,7 +30,6 @@ class PersonEntity extends Equatable {
       required this.created});
 
   @override
-  // TODO: implement props
   List<Object?> get props => [
         id,
         name,
