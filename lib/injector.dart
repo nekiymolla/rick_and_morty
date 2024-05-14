@@ -11,38 +11,38 @@ import 'feature/domain/repository/person_repository.dart';
 import 'feature/domain/usecases/get_persons_usecase.dart';
 import 'feature/presentation/bloc/person_list_cubit.dart';
 
-final sl = GetIt.instance;
+final injector = GetIt.instance;
 
 Future<void> init() async {
   //Cubit
-  sl.registerFactory(
-    () => PersonListCubit(getPersonsUseCase: sl()),
+  injector.registerFactory(
+    () => PersonListCubit(getPersonsUseCase: injector()),
   );
   //UseCases
-  sl.registerLazySingleton(
-    () => GetPersonsUseCase(sl()),
+  injector.registerLazySingleton(
+    () => GetPersonsUseCase(injector()),
   );
   //Repository
-  sl.registerLazySingleton<PersonRepository>(
+  injector.registerLazySingleton<PersonRepository>(
     () => PersonRepositoryImpl(
-      remoteDataSource: sl(),
-      localDataSource: sl(),
-      networkInfo: sl(),
+      remoteDataSource: injector(),
+      localDataSource: injector(),
+      networkInfo: injector(),
     ),
   );
-  sl.registerLazySingleton<PersonRemoteDatasource>(
-    () => PersonRemoteDatasourceImpl(dio: sl()),
+  injector.registerLazySingleton<PersonRemoteDatasource>(
+    () => PersonRemoteDatasourceImpl(dio: injector()),
   );
-  sl.registerLazySingleton<PersonLocalDataSources>(
-    () => PersonLocalDataSourcesImpl(sharedPreferences: sl()),
+  injector.registerLazySingleton<PersonLocalDataSources>(
+    () => PersonLocalDataSourcesImpl(sharedPreferences: injector()),
   );
   //Core
-  sl.registerLazySingleton<NetworkInfo>(
-    () => NetworkInfoImpl(sl()),
+  injector.registerLazySingleton<NetworkInfo>(
+    () => NetworkInfoImpl(injector()),
   );
   //External
   final sharedPreferences = await SharedPreferences.getInstance();
-  sl.registerLazySingleton(() => Dio());
-  sl.registerLazySingleton(() => InternetConnectionChecker());
-  sl.registerLazySingleton(() => sharedPreferences);
+  injector.registerLazySingleton(() => Dio());
+  injector.registerLazySingleton(() => InternetConnectionChecker());
+  injector.registerLazySingleton(() => sharedPreferences);
 }
