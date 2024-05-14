@@ -1,9 +1,10 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter_application_1/core/errors/error.dart';
-import 'package:flutter_application_1/core/errors/usecases.dart';
 import 'package:flutter_application_1/feature/domain/entities/person_entity.dart';
 import 'package:flutter_application_1/feature/domain/repository/person_repository.dart';
+
+import '../../../core/usecases/usecases.dart';
 
 class GetPersonsUseCase extends UseCases<List<PersonEntity>, PersonIdParams> {
   final PersonRepository personRepository;
