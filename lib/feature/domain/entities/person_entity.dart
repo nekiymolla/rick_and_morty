@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter_application_1/domain/entities/entities.dart';
+import 'package:flutter_application_1/feature/domain/entities/entities.dart';
 
 class PersonEntity extends Equatable {
   final int id;
