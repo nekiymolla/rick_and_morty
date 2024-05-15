@@ -48,10 +48,14 @@ class PersonsListWidget extends StatelessWidget {
         controller: scrollController,
         itemCount: persons.length + (isLoading ? 1 : 0),
         itemBuilder: (context, index) => Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: 18,
+          padding: const EdgeInsets.only(
+            left: 18,
+            right: 18,
+            top: 10,
           ),
-          child: const PersonPlateWidget(),
+          child: PersonPlateWidget(
+            person: persons[index],
+          ),
         ),
       );
     });

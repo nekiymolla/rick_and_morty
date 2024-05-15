@@ -170,6 +170,12 @@
       "languageVersion": "3.0"
     },
     {
+      "name": "google_fonts",
+      "rootUri": "file:///Users/ivansobackin/.pub-cache/hosted/pub.dev/google_fonts-6.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
       "name": "http",
       "rootUri": "file:///Users/ivansobackin/.pub-cache/hosted/pub.dev/http-1.2.1",
       "packageUri": "lib/",
@@ -500,7 +506,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-05-14T22:00:35.357519Z",
+  "generated": "2024-05-15T21:19:11.230925Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }

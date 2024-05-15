@@ -7,5 +7,5 @@ class AppColors {
   static const Color statusAlive = Colors.green;
   static const Color statusDead = Colors.red;
   static const Color statusUnknown = Colors.orange;
-  static Color plateColor = Colors.white.withOpacity(0.2);
+  static Color plateColor = Colors.black.withOpacity(0.4);
 }

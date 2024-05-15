@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/common/app_colors.dart';
+import 'package:flutter_application_1/feature/domain/entities/person_entity.dart';
+import 'package:flutter_application_1/feature/presentation/widgets/person_cached_image_widget.dart';
+import 'package:flutter_application_1/feature/presentation/widgets/status_person_widget.dart';
+
+import '../../../common/text_styles.dart';
 
 class PersonPlateWidget extends StatelessWidget {
-  const PersonPlateWidget({super.key});
+  final PersonEntity person;
+
+  const PersonPlateWidget({super.key, required this.person});
 
   @override
   Widget build(BuildContext context) {
@@ -11,66 +18,58 @@ class PersonPlateWidget extends StatelessWidget {
         color: AppColors.plateColor,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.borderColor),
-        backgroundBlendMode: BlendMode.overlay,
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            Container(
-              height: 72,
-              width: 72,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(6),
-              ),
-            ),
-            const SizedBox(
-              width: 10,
-            ),
-            PlatePersonInfo(),
-          ],
-        ),
-      ),
+      child: PersonPlateBody(person: person),
     );
   }
 }
 
-class PersonImage extends StatelessWidget {
-  const PersonImage({super.key});
+class PersonPlateBody extends StatelessWidget {
+  const PersonPlateBody({
+    super.key,
+    required this.person,
+  });
+
+  final PersonEntity person;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(6),
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        children: [
+          PersonCacheImage(
+            imageUrl: person.image,
+            width: 72,
+            height: 72,
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          PlatePersonInfo(
+            person: person,
+          ),
+        ],
       ),
     );
   }
 }
 
 class PlatePersonInfo extends StatelessWidget {
-  const PlatePersonInfo({super.key});
+  final PersonEntity person;
+
+  const PlatePersonInfo({super.key, required this.person});
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const [
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
         Text(
-          'Name',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-          ),
+          person.name,
+          style: TextStyles.mainText,
         ),
-        Text(
-          'Gender',
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 14,
-          ),
-        ),
+        StatusPersonWidget(person: person),
       ],
     );
   }
