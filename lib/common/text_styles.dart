@@ -4,19 +4,22 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app_colors.dart';
 
 class TextStyles {
-  static const TextStyle mainText = TextStyle(
+  static TextStyle mainText = TextStyle(
     fontSize: 18,
     fontWeight: FontWeight.w700,
     color: AppColors.textColor,
+    fontFamily: GoogleFonts.unbounded().fontFamily,
   );
-  static const TextStyle statusText = TextStyle(
+  static TextStyle statusText = TextStyle(
     fontSize: 14,
     fontWeight: FontWeight.w600,
     color: AppColors.textColor,
+    fontFamily: GoogleFonts.unbounded().fontFamily,
   );
-  static const TextStyle descriptionText = TextStyle(
+  static TextStyle descriptionText = TextStyle(
     fontSize: 12,
     fontWeight: FontWeight.w400,
     color: AppColors.textColor,
+    fontFamily: GoogleFonts.unbounded().fontFamily,
   );
 }

@@ -46,8 +46,10 @@ class PersonPlateBody extends StatelessWidget {
           const SizedBox(
             width: 10,
           ),
-          PlatePersonInfo(
-            person: person,
+          Expanded(
+            child: PlatePersonInfo(
+              person: person,
+            ),
           ),
         ],
       ),
