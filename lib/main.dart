@@ -19,7 +19,7 @@ class RickAndMortyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider<PersonListCubit>(
-          create: (context) => injector<PersonListCubit>(),
+          create: (context) => injector<PersonListCubit>()..loadPersons(),
         ),
       ],
       child: const MaterialApp(

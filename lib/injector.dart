@@ -1,4 +1,6 @@
-import 'package:dio/dio.dart';
+// import 'package:dio/dio.dart';
+import 'package:http/http.dart' as http;
+
 import 'package:get_it/get_it.dart';
 import 'package:internet_connection_checker/internet_connection_checker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -31,7 +33,7 @@ Future<void> init() async {
     ),
   );
   injector.registerLazySingleton<PersonRemoteDatasource>(
-    () => PersonRemoteDatasourceImpl(dio: Dio()),
+    () => PersonRemoteDatasourceImpl(client: http.Client()),
   );
   injector.registerLazySingleton<PersonLocalDataSources>(
     () => PersonLocalDataSourcesImpl(sharedPreferences: injector()),
@@ -42,7 +44,7 @@ Future<void> init() async {
   );
   //External
   final sharedPreferences = await SharedPreferences.getInstance();
-  injector.registerLazySingleton(() => Dio());
+  injector.registerLazySingleton(() => http.Client());
   injector.registerLazySingleton(() => InternetConnectionChecker());
   injector.registerLazySingleton(() => sharedPreferences);
 }

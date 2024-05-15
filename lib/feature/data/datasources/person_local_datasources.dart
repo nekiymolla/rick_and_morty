@@ -28,7 +28,7 @@ class PersonLocalDataSourcesImpl implements PersonLocalDataSources {
   @override
   Future<void> personsToCashe(List<PersonModel> cachedPersons) {
     final List<String> cachedPersonsList = cachedPersons
-        .map((e) => jsonEncode(
+        .map((e) => json.encode(
               e.toJson(),
             ))
         .toList();
