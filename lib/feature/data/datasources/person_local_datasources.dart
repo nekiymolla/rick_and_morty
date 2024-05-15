@@ -33,8 +33,7 @@ class PersonLocalDataSourcesImpl implements PersonLocalDataSources {
             ))
         .toList();
     sharedPreferences.setStringList('CACHED_PERSONS_LIST', cachedPersonsList);
-    //TODO: delete this
-    print('cachedlist:${cachedPersonsList.length}');
+    // ignore: void_checks
     return Future.value(cachedPersonsList);
   }
 }

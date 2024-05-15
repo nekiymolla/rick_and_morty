@@ -65,33 +65,35 @@ class ErrorPageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          'Что - то пошло не так',
-          style: TextStyles.mainText,
-        ),
-        const SizedBox(height: 10),
-        InkWell(
-          highlightColor: Colors.transparent,
-          splashColor: Colors.transparent,
-          onTap: () => context.read<PersonListCubit>().loadPersons(),
-          child: Container(
-            padding: const EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: AppColors.plateColor,
-              borderRadius: BorderRadius.circular(
-                16,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Что - то пошло не так',
+            style: TextStyles.mainText,
+          ),
+          const SizedBox(height: 10),
+          InkWell(
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
+            onTap: () => context.read<PersonListCubit>().loadPersons(),
+            child: Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                color: AppColors.plateColor,
+                borderRadius: BorderRadius.circular(
+                  16,
+                ),
+              ),
+              child: Text(
+                'Попробовать еще раз',
+                style: TextStyles.mainText,
               ),
             ),
-            child: Text(
-              'Попробовать еще раз',
-              style: TextStyles.mainText,
-            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
