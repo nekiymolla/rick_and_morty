@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/feature/presentation/widgets/person_plate_widget.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../common/app_colors.dart';
+import '../../../common/text_styles.dart';
 import '../../../core/widgets/loading_indicator.dart';
 import '../../domain/entities/entities.dart';
 import '../bloc/person_list_cubit.dart';
@@ -33,13 +35,7 @@ class PersonsListWidget extends StatelessWidget {
       } else if (state is PersonLoaded) {
         persons = state.personsList;
       } else if (state is PersonError) {
-        return Text(
-          state.message,
-          style: const TextStyle(
-            color: Colors.red,
-            fontSize: 25,
-          ),
-        );
+        return const ErrorPageWidget();
       } else if (state is PersonLoading) {
         persons = state.oldPersonsList;
         isLoading = true;
@@ -59,5 +55,43 @@ class PersonsListWidget extends StatelessWidget {
         ),
       );
     });
+  }
+}
+
+class ErrorPageWidget extends StatelessWidget {
+  const ErrorPageWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          'Что - то пошло не так',
+          style: TextStyles.mainText,
+        ),
+        const SizedBox(height: 10),
+        InkWell(
+          highlightColor: Colors.transparent,
+          splashColor: Colors.transparent,
+          onTap: () => context.read<PersonListCubit>().loadPersons(),
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              color: AppColors.plateColor,
+              borderRadius: BorderRadius.circular(
+                16,
+              ),
+            ),
+            child: Text(
+              'Попробовать еще раз',
+              style: TextStyles.mainText,
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
