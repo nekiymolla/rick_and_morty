@@ -7,7 +7,6 @@ import 'package:flutter_application_1/feature/presentation/widgets/status_person
 import 'package:flutter_application_1/router/router.dart';
 
 import '../../../common/text_styles.dart';
-import '../pages/person_info_page.dart';
 
 class PersonPlateWidget extends StatelessWidget {
   final PersonEntity person;

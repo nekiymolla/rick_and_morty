@@ -1,9 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/feature/domain/entities/person_entity.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_application_1/feature/presentation/widgets/status_person_widget.dart';
 
 import '../../../common/app_colors.dart';
+import '../../../common/text_styles.dart';
 
 class PersonInfoPlateWidget extends StatelessWidget {
   final PersonEntity person;
@@ -17,8 +17,10 @@ class PersonInfoPlateWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(16),
         border: Border.all(color: AppColors.borderColor),
       ),
-      child: PersonInfoPlateBody(
-        person: person,
+      child: Expanded(
+        child: PersonInfoPlateBody(
+          person: person,
+        ),
       ),
     );
   }
@@ -32,7 +34,34 @@ class PersonInfoPlateBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [],
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(person.name, style: TextStyles.mainText),
+        const SizedBox(height: 5),
+        StatusPersonWidget(
+          person: person,
+        ),
+        const SizedBox(height: 5),
+        Text(
+          'Сущность: ${person.species}',
+          style: TextStyles.descriptionText,
+        ),
+        const SizedBox(height: 5),
+        Text(
+          'Эпизоды: ${person.episode.length}',
+          style: TextStyles.descriptionText,
+        ),
+        const SizedBox(height: 5),
+        Text(
+          'Откуда: ${person.location.name}',
+          style: TextStyles.descriptionText,
+        ),
+        const SizedBox(height: 5),
+        Text(
+          'Место нахождения: ${person.origin.name}',
+          style: TextStyles.descriptionText,
+        ),
+      ],
     );
   }
 }

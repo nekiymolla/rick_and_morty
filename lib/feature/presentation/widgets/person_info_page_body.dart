@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/feature/presentation/widgets/person_info_plate_widget.dart';
 
 import '../../domain/entities/entities.dart';
 
@@ -14,7 +15,11 @@ class PersonInfoPageBody extends StatelessWidget {
         horizontal: 18,
       ),
       child: Column(
-        children: [PersonInfoPlateImage(person: person)],
+        children: [
+          PersonInfoPlateImage(person: person),
+          const SizedBox(height: 10),
+          PersonInfoPlateBody(person: person)
+        ],
       ),
     );
   }

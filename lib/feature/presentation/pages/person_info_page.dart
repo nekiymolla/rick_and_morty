@@ -20,6 +20,7 @@ class PersonInfoPage extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 90,
           backgroundColor: Colors.transparent,
           title: SvgPicture.asset(
