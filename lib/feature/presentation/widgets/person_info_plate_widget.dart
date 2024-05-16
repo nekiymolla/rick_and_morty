@@ -4,6 +4,7 @@ import 'package:flutter_application_1/feature/presentation/widgets/status_person
 
 import '../../../common/app_colors.dart';
 import '../../../common/text_styles.dart';
+import '../../../generated/l10n.dart';
 
 class PersonInfoPlateWidget extends StatelessWidget {
   final PersonEntity person;
@@ -33,6 +34,7 @@ class PersonInfoPlateBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = S.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -43,22 +45,22 @@ class PersonInfoPlateBody extends StatelessWidget {
         ),
         const SizedBox(height: 5),
         Text(
-          'Сущность: ${person.species}',
+          '${l10n.species}: ${person.species}',
           style: TextStyles.descriptionText,
         ),
         const SizedBox(height: 5),
         Text(
-          'Эпизоды: ${person.episode.length}',
+          '${l10n.episodes}: ${person.episode.length}',
           style: TextStyles.descriptionText,
         ),
         const SizedBox(height: 5),
         Text(
-          'Откуда: ${person.location.name}',
+          '${l10n.location}: ${person.location.name}',
           style: TextStyles.descriptionText,
         ),
         const SizedBox(height: 5),
         Text(
-          'Место нахождения: ${person.origin.name}',
+          '${l10n.origin}: ${person.origin.name}',
           style: TextStyles.descriptionText,
         ),
       ],

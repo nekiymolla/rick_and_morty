@@ -5,6 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../common/app_colors.dart';
 import '../../../common/text_styles.dart';
 import '../../../core/widgets/loading_indicator.dart';
+import '../../../generated/l10n.dart';
 import '../../domain/entities/entities.dart';
 import '../bloc/person_list_cubit.dart';
 import '../bloc/person_list_state.dart';
@@ -65,12 +66,13 @@ class ErrorPageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = S.of(context);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Что - то пошло не так',
+            l10n.somethingWentWrong,
             style: TextStyles.mainText,
           ),
           const SizedBox(height: 10),
@@ -87,7 +89,7 @@ class ErrorPageWidget extends StatelessWidget {
                 ),
               ),
               child: Text(
-                'Попробовать еще раз',
+                l10n.tryAgain,
                 style: TextStyles.mainText,
               ),
             ),

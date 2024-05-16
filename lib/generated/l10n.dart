@@ -49,6 +49,66 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `Something went wrong`
+  String get somethingWentWrong {
+    return Intl.message(
+      'Something went wrong',
+      name: 'somethingWentWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get tryAgain {
+    return Intl.message(
+      'Try again',
+      name: 'tryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Species`
+  String get species {
+    return Intl.message(
+      'Species',
+      name: 'species',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Episodes`
+  String get episodes {
+    return Intl.message(
+      'Episodes',
+      name: 'episodes',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location`
+  String get location {
+    return Intl.message(
+      'Location',
+      name: 'location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Origin`
+  String get origin {
+    return Intl.message(
+      'Origin',
+      name: 'origin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -57,6 +117,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ru'),
     ];
   }
 
