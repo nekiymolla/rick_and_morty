@@ -28,8 +28,11 @@ class PersonInfoPage extends StatelessWidget {
           ),
         ),
         backgroundColor: Colors.transparent,
-        body: PersonInfoPageBody(
-          person: person,
+        body: SingleChildScrollView(
+          physics: const BouncingScrollPhysics(),
+          child: PersonInfoPageBody(
+            person: person,
+          ),
         ),
       ),
     );

@@ -26,12 +26,26 @@ class PersonInfoPlateImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Stack(children: [
-      Image(
-        image: AssetImage(
-          'assets/pictures/portal.png',
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/pictures/portal.png'),
         ),
       ),
-    ]);
+      child: Padding(
+        padding: const EdgeInsets.all(
+          65,
+        ),
+        child: Center(
+          child: ClipOval(
+            child: CachedNetworkImage(
+              imageUrl: person.image,
+              height: 180,
+              width: 180,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
