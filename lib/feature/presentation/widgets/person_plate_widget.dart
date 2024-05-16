@@ -41,7 +41,11 @@ class PersonPlateBody extends StatelessWidget {
       highlightColor: Colors.transparent,
       splashColor: Colors.transparent,
       onTap: () {
-        AutoRouter.of(context).push(PersonInfoRoute(person: person));
+        AutoRouter.of(context).push(
+          PersonInfoRoute(
+            person: person,
+          ),
+        );
       },
       child: Padding(
         padding: const EdgeInsets.all(10.0),
