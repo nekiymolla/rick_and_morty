@@ -1,7 +1,9 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import '../widgets/persons_list_widget.dart';
 
+@RoutePage()
 class PersonsListPage extends StatelessWidget {
   const PersonsListPage({super.key});
 
