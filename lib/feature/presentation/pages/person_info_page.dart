@@ -20,6 +20,7 @@ class PersonInfoPage extends StatelessWidget {
       ),
       child: Scaffold(
         appBar: AppBar(
+          centerTitle: true,
           automaticallyImplyLeading: false,
           toolbarHeight: 90,
           backgroundColor: Colors.transparent,
