@@ -236,6 +236,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "flutter_localizations",
+      "rootUri": "file:///Users/ivansobackin/Documents/dev/flutter/packages/flutter_localizations",
+      "packageUri": "lib/",
+      "languageVersion": "3.2"
+    },
+    {
       "name": "flutter_svg",
       "rootUri": "file:///Users/ivansobackin/.pub-cache/hosted/pub.dev/flutter_svg-2.0.10+1",
       "packageUri": "lib/",
@@ -306,6 +312,12 @@
       "rootUri": "file:///Users/ivansobackin/.pub-cache/hosted/pub.dev/internet_connection_checker-1.0.0+1",
       "packageUri": "lib/",
       "languageVersion": "2.18"
+    },
+    {
+      "name": "intl",
+      "rootUri": "file:///Users/ivansobackin/.pub-cache/hosted/pub.dev/intl-0.18.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "io",
@@ -722,7 +734,7 @@
       "languageVersion": "3.3"
     }
   ],
-  "generated": "2024-05-16T00:44:32.460028Z",
+  "generated": "2024-05-16T01:21:57.894570Z",
   "generator": "pub",
   "generatorVersion": "3.3.4"
 }
