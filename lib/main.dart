@@ -3,6 +3,7 @@ import 'package:flutter_application_1/feature/presentation/bloc/person_list_cubi
 import 'package:flutter_application_1/feature/presentation/pages/persons_list_page.dart';
 import 'package:flutter_application_1/injector.dart' as di;
 import 'package:flutter_application_1/injector.dart';
+import 'package:flutter_application_1/router/router.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() async {
@@ -11,9 +12,15 @@ void main() async {
   runApp(const RickAndMortyApp());
 }
 
-class RickAndMortyApp extends StatelessWidget {
+class RickAndMortyApp extends StatefulWidget {
   const RickAndMortyApp({super.key});
 
+  @override
+  State<RickAndMortyApp> createState() => _RickAndMortyAppState();
+}
+
+class _RickAndMortyAppState extends State<RickAndMortyApp> {
+  final _appRouter = AppRouter();
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -22,9 +29,10 @@ class RickAndMortyApp extends StatelessWidget {
           create: (context) => injector<PersonListCubit>()..loadPersons(),
         ),
       ],
-      child: const MaterialApp(
+      child: MaterialApp.router(
+        routerConfig: _appRouter.config(),
         debugShowCheckedModeBanner: false,
-        home: PersonsListPage(),
+        // home: PersonsListPage(),
       ),
     );
   }

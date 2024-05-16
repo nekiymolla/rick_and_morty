@@ -16,9 +16,13 @@ abstract class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     PersonInfoRoute.name: (routeData) {
+      final args = routeData.argsAs<PersonInfoRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PersonInfoPage(),
+        child: PersonInfoPage(
+          key: args.key,
+          person: args.person,
+        ),
       );
     },
     PersonsListRoute.name: (routeData) {
@@ -32,16 +36,40 @@ abstract class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [PersonInfoPage]
-class PersonInfoRoute extends PageRouteInfo<void> {
-  const PersonInfoRoute({List<PageRouteInfo>? children})
-      : super(
+class PersonInfoRoute extends PageRouteInfo<PersonInfoRouteArgs> {
+  PersonInfoRoute({
+    Key? key,
+    required PersonEntity person,
+    List<PageRouteInfo>? children,
+  }) : super(
           PersonInfoRoute.name,
+          args: PersonInfoRouteArgs(
+            key: key,
+            person: person,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'PersonInfoRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<PersonInfoRouteArgs> page =
+      PageInfo<PersonInfoRouteArgs>(name);
+}
+
+class PersonInfoRouteArgs {
+  const PersonInfoRouteArgs({
+    this.key,
+    required this.person,
+  });
+
+  final Key? key;
+
+  final PersonEntity person;
+
+  @override
+  String toString() {
+    return 'PersonInfoRouteArgs{key: $key, person: $person}';
+  }
 }
 
 /// generated route for

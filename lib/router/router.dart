@@ -16,7 +16,5 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: PersonInfoRoute.page,
         ),
-
-        /// routes go here
       ];
 }
