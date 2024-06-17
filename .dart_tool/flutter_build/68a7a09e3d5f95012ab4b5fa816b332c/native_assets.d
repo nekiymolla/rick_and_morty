@@ -1,0 +1,1 @@
+ /Users/ivansobackin/Documents/mine/testapps/rick_and_morty/.dart_tool/flutter_build/68a7a09e3d5f95012ab4b5fa816b332c/native_assets.yaml: 
